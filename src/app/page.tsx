@@ -3,8 +3,19 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Plus, List, Check, ArrowDownRight, FilePenLine, Trash, ListCheck } from 'lucide-react';
-
+import { Plus, List, Check, ArrowDownRight, FilePenLine, Trash, ListCheck, Sigma } from 'lucide-react';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 const Home = () => {
   return (
     // main: área principal da tela (ocupa 100% da largura e altura da janela)
@@ -95,13 +106,32 @@ const Home = () => {
               {/* Ações (editar / deletar) */}
               <div className="flex items-center gap-2 pr-4">
                 {/* Ícone de lápis para editar */}
-                <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
+                <Dialog>
+              <DialogTrigger asChild>
+              <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>
+                  Editar Tarefas
+                  </DialogTitle>
+                </DialogHeader>   
+
+                <div className="flex gap-2">
+                  <Input placeholder="Editar Tarefa"/>
+                  <Button className="cursor-pointer">
+                    Editar
+                  </Button>
+                </div>
+              </DialogContent>
+          </Dialog>
                 
                 {/* Ícone de lixeira para apagar */}
                 <Trash size={16} className="cursor-pointer text-gray-600 hover:text-red-600 transition-colors" />
               </div>
             </div>
 
+         
             {/* SEGUNDA TAREFA */}
             <div className="bg-white h-14 flex justify-between items-center border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               {/* Barrinha lateral amarela → indicando "pendente" */}
@@ -112,7 +142,25 @@ const Home = () => {
 
               {/* Botões de ação (editar/apagar) */}
               <div className="flex items-center gap-2 pr-4">
-                <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
+              <Dialog>
+              <DialogTrigger asChild>
+              <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>
+                  Editar Tarefas
+                  </DialogTitle>
+                </DialogHeader>   
+
+                <div className="flex gap-2">
+                  <Input placeholder="Editar Tarefa"/>
+                  <Button className="cursor-pointer">
+                    Editar
+                  </Button>
+                </div>
+              </DialogContent>
+          </Dialog>
                 <Trash size={16} className="cursor-pointer text-gray-600 hover:text-red-600 transition-colors" />
               </div>
             </div>
@@ -127,26 +175,70 @@ const Home = () => {
 
               {/* Ícones de ação */}
               <div className="flex items-center gap-2 pr-4">
-                <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
+              <Dialog>
+              <DialogTrigger asChild>
+              <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>
+                  Editar Tarefas
+                  </DialogTitle>
+                </DialogHeader>   
+
+                <div className="flex gap-2">
+                  <Input placeholder="Editar Tarefa"/>
+                  <Button className="cursor-pointer">
+                    Editar
+                  </Button>
+                </div>
+              </DialogContent>
+          </Dialog>
                 <Trash size={16} className="cursor-pointer text-gray-600 hover:text-red-600 transition-colors" />
               </div>
             </div>
 
            
           </div>
+
+         
+
           <div className="flex justify-between mt-4">
           <div className="flex gap-2 items-center">
                <ListCheck size={18}/>
               <p className="text-xs">Tarefas Concluidas (3/3)</p>
             </div>
-            <Button className="text-xs h-7 cursor-pointer" variant="outline"><Trash /> Limpar tarefas Concluidas</Button>
+          
+            <AlertDialog>
+    {/* as child vai entender que o componente Trigger vai herdar todas as caracteristicas do botao */}
+  <AlertDialogTrigger asChild>
+  <Button className="text-xs h-7 cursor-pointer" variant="outline"><Trash /> Limpar tarefas Concluidas</Button>
+    
+    </AlertDialogTrigger>
+  <AlertDialogContent >
+    <AlertDialogHeader>
+      <AlertDialogTitle>Tem certeza que deseja excluir x items</AlertDialogTitle>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogAction>Sim</AlertDialogAction>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
             
             </div>
-            <div className="h-8 w-full bg-red-100">
-              <div className="h-2 w-52 bg-blue-500">
+            <div className="h-2 w-full bg-red-400 mt-4 rounded-md">
+              <div className="h-full  bg-blue-500" style={{width:"50%"}}>
 
               </div>
+              <div className="flex justify-end mt-2 gap-2">
+              <Sigma size={18}/>
+              <p className="text-xs">3 tarefas no total</p>
+              </div>
             </div>
+            {/* Pop uP */}
+            
+            
           
                   </CardContent>
       </Card>
