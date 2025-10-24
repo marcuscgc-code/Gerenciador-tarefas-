@@ -1,0 +1,19 @@
+// Prisma gera o client em node_modules/@prisma/client
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Configuração do provider e conexão
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo da tabela
+model Tasks {
+  id        String   @id @default(cuid())
+  task      String
+  done      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -16,6 +16,10 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+
+import EditTask from "@/components/ui/edti-task";
+
+
 const Home = () => {
   return (
     // main: área principal da tela (ocupa 100% da largura e altura da janela)
@@ -102,29 +106,14 @@ const Home = () => {
 
               {/* Texto da tarefa */}
               <p className="flex-1 px-4 text-sm font-medium">Estudar React</p>
+              
 
               {/* Ações (editar / deletar) */}
               <div className="flex items-center gap-2 pr-4">
+              <EditTask/>
                 {/* Ícone de lápis para editar */}
-                <Dialog>
-              <DialogTrigger asChild>
-              <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>
-                  Editar Tarefas
-                  </DialogTitle>
-                </DialogHeader>   
 
-                <div className="flex gap-2">
-                  <Input placeholder="Editar Tarefa"/>
-                  <Button className="cursor-pointer">
-                    Editar
-                  </Button>
-                </div>
-              </DialogContent>
-          </Dialog>
+            
                 
                 {/* Ícone de lixeira para apagar */}
                 <Trash size={16} className="cursor-pointer text-gray-600 hover:text-red-600 transition-colors" />
@@ -142,25 +131,7 @@ const Home = () => {
 
               {/* Botões de ação (editar/apagar) */}
               <div className="flex items-center gap-2 pr-4">
-              <Dialog>
-              <DialogTrigger asChild>
-              <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>
-                  Editar Tarefas
-                  </DialogTitle>
-                </DialogHeader>   
-
-                <div className="flex gap-2">
-                  <Input placeholder="Editar Tarefa"/>
-                  <Button className="cursor-pointer">
-                    Editar
-                  </Button>
-                </div>
-              </DialogContent>
-          </Dialog>
+              <EditTask/>
                 <Trash size={16} className="cursor-pointer text-gray-600 hover:text-red-600 transition-colors" />
               </div>
             </div>
@@ -175,25 +146,7 @@ const Home = () => {
 
               {/* Ícones de ação */}
               <div className="flex items-center gap-2 pr-4">
-              <Dialog>
-              <DialogTrigger asChild>
-              <FilePenLine size={16} className="cursor-pointer text-gray-600 hover:text-blue-600 transition-colors" />
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>
-                  Editar Tarefas
-                  </DialogTitle>
-                </DialogHeader>   
-
-                <div className="flex gap-2">
-                  <Input placeholder="Editar Tarefa"/>
-                  <Button className="cursor-pointer">
-                    Editar
-                  </Button>
-                </div>
-              </DialogContent>
-          </Dialog>
+              <EditTask/>
                 <Trash size={16} className="cursor-pointer text-gray-600 hover:text-red-600 transition-colors" />
               </div>
             </div>
